@@ -23,6 +23,8 @@ else
   export EDITOR='vim'
 fi
 
+alias i='yay -S --needed --sudoloop'
+
 mkd() {
   for i in *.$1; do mkdir -p "${i%.*}"; done
 }

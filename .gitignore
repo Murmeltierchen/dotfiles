@@ -1,2 +1,5 @@
+.config/ghb
+!.config/ghb/presets.json
+
 .config/vesktop
 !.config/vesktop/settings/settings.json

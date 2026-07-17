@@ -4,6 +4,8 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 
+export COMPOSE_PROGRESS=plain
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 DEFAULT_USER="$USER"
 

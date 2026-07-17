@@ -287,20 +287,6 @@
         "KeepCurrentChannel": {
             "enabled": false
         },
-        "LastFMRichPresence": {
-            "enabled": false,
-            "hideWithActivity": false,
-            "hideWithSpotify": true,
-            "shareUsername": false,
-            "clickableLinks": true,
-            "statusName": "some music",
-            "statusDisplayType": "artist",
-            "nameFormat": "status-name",
-            "useListeningStatus": false,
-            "missingArt": "lastfmLogo",
-            "showLastFmLogo": true,
-            "showAlbumCover": true
-        },
         "LoadingQuotes": {
             "enabled": true,
             "replaceEvents": true,
@@ -326,7 +312,10 @@
             "enabled": false
         },
         "MessageLinkEmbeds": {
-            "enabled": true
+            "enabled": true,
+            "listMode": "blacklist",
+            "idList": "",
+            "automodEmbeds": "never"
         },
         "MessageLogger": {
             "enabled": true,
@@ -643,7 +632,6 @@
         },
         "VcNarrator": {
             "enabled": true,
-            "voice": "English (Caribbean)+Robosoft5 espeak-ng",
             "volume": 0.5018050541516246,
             "rate": 1.0113718411552348,
             "sayOwnName": false,
@@ -721,6 +709,20 @@
         },
         "NoMosaic": {
             "enabled": false
+        },
+        "MusicRichPresence": {
+            "enabled": false,
+            "hideWithActivity": false,
+            "hideWithSpotify": true,
+            "shareUsername": false,
+            "clickableLinks": true,
+            "statusName": "some music",
+            "statusDisplayType": "artist",
+            "nameFormat": "status-name",
+            "useListeningStatus": false,
+            "missingArt": "lastfmLogo",
+            "showAlbumCover": true,
+            "showLogo": true
         }
     },
     "uiElements": {
@@ -737,7 +739,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1780592692334
+        "settingsSyncVersion": 1784223622696
     },
     "windowsMaterial": "none"
 }

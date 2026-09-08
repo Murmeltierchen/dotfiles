@@ -25,6 +25,9 @@ else
   export EDITOR='vim'
 fi
 
+alias :q='exit'
+alias :qa='exit'
+
 i() {
     if [ "$#" -eq 0 ]; then
         yay -Syu --sudoloop --removemake

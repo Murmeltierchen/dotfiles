@@ -1,0 +1,7 @@
+#!/bin/sh
+
+BRANCH_NAME=$(printf %s $(git branch | grep \* | cut -d " " -f2))
+ORIGINAL_MSG=$(cat "$1")
+NEW_MSG="${BRANCH_NAME}: ${ORIGINAL_MSG}"
+
+echo "${NEW_MSG}" > "$1"

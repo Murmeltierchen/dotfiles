@@ -40,17 +40,6 @@ mkd() {
   for i in *.$1; do mkdir -p "${i%.*}"; done
 }
 
-cc() {
-    mpv av://v4l2:/dev/video0 \
-  --profile=low-latency \
-  --untimed \
-  --demuxer-lavf-format=video4linux2 \
-  --demuxer-lavf-o=video_size=1920x1080,framerate=60,input_format=yuyv422 \
-  --no-audio \
-  --cache=no \
-  --vd-lavc-threads=1
-}
-
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PNPM_HOME="$HOME/.local/share/pnpm"

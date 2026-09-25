@@ -37,7 +37,9 @@ i() {
 }
 
 mkd() {
-  for i in *.$1; do mkdir -p "${i%.*}"; done
+  for i in *.$1(N); do
+    mkdir -p "${i%.*}" && mv -n "$i" "${i%.*}/"
+  done
 }
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

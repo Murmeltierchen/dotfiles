@@ -38,7 +38,8 @@ i() {
 
 mkd() {
   for i in *.$1(N); do
-    mkdir -p "${i%.*}" && mv -n "$i" "${i%.*}/"
+    local target="${2:+$2/}${i%.*}"
+    mkdir -p "$target" && mv -n "$i" "$target/"
   done
 }
 

@@ -18,16 +18,38 @@ cc:
 [group('update')]
 update-config: pull-dotfiles pull-nvim
 
-[private]
 [group('update')]
-[working-directory: 'dotfiles']
+[private]
+[working-directory('dotfiles')]
 pull-dotfiles:
     git pull
     stow --adopt .
     git restore .
 
-[private]
 [group('update')]
-[working-directory: '.config/nvim']
+[private]
+[working-directory('.config/nvim')]
 pull-nvim:
     git pull
+
+# Add a Wireguard VPN connection to NetworkManager
+[group('vpn')]
+vpn-add conf name=file_stem(conf):
+    #!/usr/bin/env bash
+    set -euo pipefail
+    tmp_dir="$(mktemp -d)"
+    trap 'rm -rf "$tmp_dir"' EXIT
+    cp "{{ conf }}" "$tmp_dir/{{ name }}.conf"
+    nmcli connection import type wireguard file "$tmp_dir/{{ name }}.conf"
+    nmcli connection modify "{{ name }}" connection.autoconnect no
+
+# Remove a Wireguard VPN connection from NetworkManager
+[group('vpn')]
+vpn-remove name:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    conn="{{ file_stem(name) }}"
+    if [[ "$(nmcli -g connection.type connection show id "$conn" 2>/dev/null)" != "wireguard" ]]; then
+        exit 1
+    fi
+    nmcli connection delete id "$conn"
